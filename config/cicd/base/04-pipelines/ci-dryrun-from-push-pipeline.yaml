@@ -16,8 +16,8 @@ spec:
       value: $(params.COMMIT_SHA)
     - name: DESCRIPTION
       value: The build is complete
-    # - name: STATE
-    #   value: $(tasks.apply-source.status)
+    - name: STATE
+      value: $(tasks.apply-source.status)
     taskRef:
       kind: Task
       name: set-commit-status
@@ -28,9 +28,9 @@ spec:
     type: string
   - name: GIT_REPO
     type: string
-  # resources:
-  # - name: source-repo
-  #   type: git
+  resources:
+  - name: source-repo
+    type: git
   tasks:
   - name: set-pending-status
     params:
@@ -47,16 +47,16 @@ spec:
     taskRef:
       kind: Task
       name: set-commit-status
-  # - name: apply-source
-  #   params:
-  #   - name: DRYRUN
-  #     value: "true"
-  #   resources:
-  #     inputs:
-  #     - name: source
-  #       resource: source-repo
-  #   runAfter:
-  #   - set-pending-status
-  #   taskRef:
-  #     kind: Task
-  #     name: deploy-from-source-task
+  - name: apply-source
+    params:
+    - name: DRYRUN
+      value: "true"
+    resources:
+      inputs:
+      - name: source
+        resource: source-repo
+    runAfter:
+    - set-pending-status
+    taskRef:
+      kind: Task
+      name: deploy-from-source-task
