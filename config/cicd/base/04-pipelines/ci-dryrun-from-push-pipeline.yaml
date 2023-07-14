@@ -51,10 +51,10 @@ spec:
     params:
     - name: DRYRUN
       value: "true"
-    resources:
-      inputs:
-      - name: source
-        resource: source-repo
+    # resources:
+    #   inputs:
+    #   - name: source
+    #     resource: source-repo
     runAfter:
     - set-pending-status
     taskRef:
