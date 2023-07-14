@@ -47,16 +47,16 @@ spec:
     taskRef:
       kind: Task
       name: set-commit-status
-  - name: apply-source
-    params:
-    - name: DRYRUN
-      value: "true"
-    # resources:
-    #   inputs:
-    #   - name: source
-    #     resource: source-repo
-    runAfter:
-    - set-pending-status
-    taskRef:
-      kind: Task
-      name: deploy-from-source-task
+  # - name: apply-source
+  #   params:
+  #   - name: DRYRUN
+  #     value: "true"
+  #   resources:
+  #     inputs:
+  #     - name: source
+  #       resource: source-repo
+  #   runAfter:
+  #   - set-pending-status
+  #   taskRef:
+  #     kind: Task
+  #     name: deploy-from-source-task
