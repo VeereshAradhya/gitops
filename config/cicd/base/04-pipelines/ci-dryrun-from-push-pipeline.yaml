@@ -16,8 +16,8 @@ spec:
       value: $(params.COMMIT_SHA)
     - name: DESCRIPTION
       value: The build is complete
-    - name: STATE
-      value: $(tasks.apply-source.status)
+    # - name: STATE
+    #   value: $(tasks.apply-source.status)
     taskRef:
       kind: Task
       name: set-commit-status
